@@ -25,6 +25,8 @@
  * @param {Object}       options The options object.
  */
 function Readability(doc, options) {
+  console.log("THIS IS MY READAOBILITY\THIS IS MY READAOBILITY\THIS IS MY READAOBILITY\THIS IS MY READAOBILITY\nnnnTHIS IS MY READAOBILITY\n");
+
   // In some older versions, people passed a URI as the first argument. Cope:
   if (options && options.documentElement) {
     doc = options;
@@ -418,7 +420,7 @@ Readability.prototype = {
     var classesToPreserve = this._classesToPreserve;
     var className = (node.getAttribute("class") || "")
       .split(/\s+/)
-      .filter(cls => classesToPreserve.includes(cls))
+      .filter(cls => classesToPreserve.includes(cls) || cls.startsWith("unique_id_"))
       .join(" ");
 
     if (className) {
